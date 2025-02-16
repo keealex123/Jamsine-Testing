@@ -26,19 +26,21 @@ function appendTd(tr, value) {
 }
 
 //delete botton
-function appendDeleteBtn (tr, type) {
-  let btn = document.createElement('td');
-  btn.className = 'deleteBtn';
-  btn.innerText = 'X';
+function appendDeleteBtn(tr, type) {
+  let newTd = document.createElement('td');
+  newTd.className = 'deleteBtn';
+  newTd.innerText = 'X';
 
-  btn.addEventListener('click',removeEle);
-  tr.append(btn);
+  newTd.addEventListener('click', removeEle);
+
+  tr.append(newTd);
 }
 
-function removeEle (evt) {
- let ele = evt.target.closest('tr');
+function removeEle(evt) {
+  let ele = evt.target.closest('tr');
 
- delete allSevers[ele.id];
- ele.parentNode.removeChild(ele);
- updateServerTable();
+  delete allServers[ele.id];
+
+  ele.parentNode.removeChild(ele);
+  updateServerTable();
 }
